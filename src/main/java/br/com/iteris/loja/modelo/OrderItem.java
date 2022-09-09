@@ -14,10 +14,10 @@ public class OrderItem {
     private BigDecimal priceUnitary;
     private int quantity;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private CustomerOrder customerOrder;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 
     public OrderItem() {

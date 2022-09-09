@@ -17,7 +17,7 @@ public class CustomerOrder {
     private BigDecimal totalAmount = BigDecimal.ZERO;
     private LocalDate date = LocalDate.now();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;
 
     @OneToMany(mappedBy = "customerOrder", cascade = CascadeType.ALL)

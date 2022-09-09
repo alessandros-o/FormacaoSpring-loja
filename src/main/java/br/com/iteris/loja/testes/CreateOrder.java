@@ -47,7 +47,10 @@ public class CreateOrder {
 
         List<SalesReportVo> report = orderDao.salesReport();
         report.forEach(System.out::println);
+
+        CustomerOrder customerOrder3 = orderDao.searchOrderWithCustomer(1L);
         em.close();
+        System.out.println(customerOrder3.getCustomer().getName());
     }
 
     private static void create() {

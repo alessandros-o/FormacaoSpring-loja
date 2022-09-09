@@ -38,4 +38,10 @@ public class OrderDao {
         return em.createQuery(jpql, SalesReportVo.class).getResultList();
     }
 
+    public CustomerOrder searchOrderWithCustomer(Long id) {
+        return em.createQuery("SELECT c FROM CustomerOrder c JOIN FETCH c.customer WHERE c.id = :id", CustomerOrder.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
+
 }
